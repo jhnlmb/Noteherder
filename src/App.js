@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Sidebar from './Sidebar.js'
-import Notelist from './Notelist.js'
-import Noteform from './Noteform.js'
+
+
+import Main from './Main'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-       <Sidebar />
-       <Notelist />
-       <Noteform />
-      </div>
+   <div className="App">
+     <Main />
+     </div>
     );
   }
 }
