@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Notelist = () => {
+const NoteList = () => {
     return <p>Note List!!</p>
 }
 
-export default Notelist
+export default NoteList
