@@ -1,8 +1,11 @@
 import React from 'react'
 
+import './Sidebar.css'
 import quill from './quill.svg'
 import newHover from './new-hover.png'
 import newIcon from './new.png'
+
+
 
 const Sidebar = () => {
     return (
