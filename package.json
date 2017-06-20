@@ -1,6 +1,6 @@
 {
   "name": "noteherder",
-  "homepage": "http://jhnlmb.github.io/Noteherder",
+  "homepage": "http://jhnlmb.github.io/noteherder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
