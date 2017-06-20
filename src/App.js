@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Main from './Main'
+import base from './base'
 
 class App extends Component {
   constructor() {
@@ -12,11 +13,22 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    base.syncState(
+      'notes',
+      {
+        context: this,
+        state: 'notes',
+      }
+    )
+
+  }
+
   saveNote = (note) => {
     if (!note.id) {
       note.id = `note-${Date.now()}`
     }
-    const notes = {...this.state.notes}
+    const notes = { ...this.state.notes }
     notes[note.id] = note
     this.setState({ notes })
   }

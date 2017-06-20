@@ -8,11 +8,11 @@ const app = firebase.initializeApp({
     databaseURL: "https://YOUR-APP.firebaseio.com",
     projectId: "YOUR-APP",
     storageBucket: "YOUR-APP.appspot.com",
-    messagingSenderId: "YOUR-APP messsage send"
+    messagingSenderId: "YOUR-APP messsage sender ID"
   }
 )
 
 const db = database(app)
 
-export default Rebase.createClas(db)
+export default Rebase.createClass(db)
 
