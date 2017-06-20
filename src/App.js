@@ -20,11 +20,22 @@ class App extends Component {
 
 
   componentWillMount() {
-   
+    auth.onAuthStateChanged(
+      (user) => {
+        if (user) {
+          this.authHandler(user)
+        } else
+        {
+          this.setState({ uid: null })
+        }
+
+      }
+    )
+
   }
 
   syncNotes = () => {
-      base.syncState(
+    base.syncState(
       `${this.state.uid}/notes`,
       {
         context: this,
@@ -40,7 +51,7 @@ class App extends Component {
     if (!note.id) {
       note.id = `note-${Date.now()}`
     }
-    const notes = {...this.state.notes}
+    const notes = { ...this.state.notes }
     notes[note.id] = note
     this.setState({ notes })
   }
@@ -54,18 +65,18 @@ class App extends Component {
     this.setState(
       { uid: user.uid },
       this.syncNotes
-      )
+    )
   }
 
   signOut = () => {
     auth
-    .signOut()
-    .then(this.setState({ uid: null }))
+      .signOut()
+      .then(this.setState({ uid: null }))
   }
 
   renderMain = () => {
     return (
-      <div>        
+      <div>
         <SignOut signOut={this.signOut} />
         <Main notes={this.state.notes} saveNote={this.saveNote} />
       </div>
@@ -75,7 +86,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn authHandler={this.authHandler} /> }
+        {this.signedIn() ? this.renderMain() : <SignIn />}
       </div>
     );
   }
