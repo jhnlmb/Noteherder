@@ -3,12 +3,12 @@ import firebase from 'firebase/app'
 import database from 'firebase/database'
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyCPd542A-RWp-FRoxbjCctSegKzrlP4Kio",
-    authDomain: "noteherder-59c0e.firebaseapp.com",
-    databaseURL: "https://noteherder-59c0e.firebaseio.com",
-    projectId: "noteherder-59c0e",
-    storageBucket: "noteherder-59c0e.appspot.com",
-    messagingSenderId: "47436753242"
+    apiKey: "YOUR API KEY",
+    authDomain: "YOUR-APP.firebaseapp.com",
+    databaseURL: "https://YOUR-APP.firebaseio.com",
+    projectId: "YOUR-APP",
+    storageBucket: "YOUR-APP.appspot.com",
+    messagingSenderId: "YOUR-APP messsage send"
   }
 )
 
