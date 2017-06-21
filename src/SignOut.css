@@ -6,6 +6,7 @@
 .SignOut button {
     outline: none;
 }
+
 .SignOut button i.fa {
     font-size: 3rem;
 }
