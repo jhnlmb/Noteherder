@@ -12,11 +12,13 @@ const SignIn = () => {
 
     return (
         <div>
+            <br />
         <button className="SignIn"
             onClick={() => authenticate(githubProvider)}
         >
             Sign In with GitHub
         </button>
+        <br />
          <button className="SignIn"
             onClick={() => authenticate(googleProvider)}
         >
