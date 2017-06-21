@@ -4,13 +4,14 @@ import './Sidebar.css'
 import quill from './quill.svg'
 import newHover from './new-hover.png'
 import newIcon from './new.png'
+import SignOut from './SignOut'
 
 
 
-const Sidebar = ({ resetCurrentNote }) => {
+const Sidebar = ({ resetCurrentNote, signOut }) => {
     return (
 
-        <div className="Sidebar">
+        <nav className="Sidebar">
             <div className="logo">
                 <img src={quill} alt="Noteherder" />
             </div>
@@ -21,7 +22,8 @@ const Sidebar = ({ resetCurrentNote }) => {
                 <img src={newHover} alt="New note" />
                 <img className="outline" src={newIcon} alt="New note" />
             </button>
-        </div>
+            <SignOut signOut={signOut} />
+        </nav>
         )
 }
 

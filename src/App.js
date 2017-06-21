@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Main from './Main'
 import SignIn from './SignIn'
-import SignOut from './SignOut'
+
 import base, { auth } from './base'
 
 class App extends Component {
@@ -95,9 +95,12 @@ class App extends Component {
       .then(
       () => {
         base.removeBinding(this.ref)
-        this.setState({ notes: {} })
+        this.setState({ 
+          notes: {}, 
+          currentNote: this.blankNote(),
+         })
       }
-      )
+    )
   }
 
   setCurrentNote = (note) => {
@@ -116,6 +119,7 @@ class App extends Component {
       removeNote: this.removeNote,
       setCurrentNote: this.setCurrentNote,
       resetCurrentNote: this.resetCurrentNote,
+      signOut: this.signOut,
     }
 
     const noteData = {
@@ -125,13 +129,11 @@ class App extends Component {
     }
 
     return (
-      <div>
-        <SignOut signOut={this.signOut} />
-        <Main
+       <Main
           {...noteData}
           {...actions}
         />
-      </div>
+     
     )
   }
 
