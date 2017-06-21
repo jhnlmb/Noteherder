@@ -25,8 +25,7 @@ class App extends Component {
       (user) => {
         if (user) {
           this.authHandler(user)
-        } else
-        {
+        } else {
           this.setState({ uid: null })
         }
 
@@ -51,6 +50,7 @@ class App extends Component {
   saveNote = (note) => {
     if (!note.id) {
       note.id = `note-${Date.now()}`
+      this.setCurrentNoteId(note.id)
     }
     const notes = { ...this.state.notes }
     notes[note.id] = note
@@ -58,9 +58,9 @@ class App extends Component {
   }
 
   removeNote = (note) => {
-    const notes = {...this.state.notes}
+    const notes = { ...this.state.notes }
     notes[note.id] = null
-    this.setState ({ notes })
+    this.setState({ notes })
   }
 
   signedIn = () => {
@@ -79,17 +79,17 @@ class App extends Component {
     auth
       .signOut()
       .then(
-        () => {
-           base.removeBinding(this.ref) 
-           this.setState({ notes: {} })
-        }
+      () => {
+        base.removeBinding(this.ref)
+        this.setState({ notes: {} })
+      }
       )
   }
 
-setCurrentNoteId = (noteId) => {
-  this.setState({ currentNoteId: noteId})
+  setCurrentNoteId = (noteId) => {
+    this.setState({ currentNoteId: noteId })
 
-}
+  }
 
   renderMain = () => {
 
@@ -99,13 +99,18 @@ setCurrentNoteId = (noteId) => {
       setCurrentNoteId: this.setCurrentNoteId,
     }
 
+    const noteData = {
+      notes: this.state.notes,
+      currentNoteId: this.state.currentNoteId,
+
+    }
 
     return (
       <div>
         <SignOut signOut={this.signOut} />
-        <Main 
-        notes={this.state.notes}
-         {...actions} 
+        <Main
+          {...noteData}
+          {...actions}
         />
       </div>
     )
