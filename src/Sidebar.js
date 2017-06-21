@@ -7,14 +7,17 @@ import newIcon from './new.png'
 
 
 
-const Sidebar = () => {
+const Sidebar = ({ resetCurrentNote }) => {
     return (
 
         <div className="Sidebar">
             <div className="logo">
                 <img src={quill} alt="Noteherder" />
             </div>
-            <button className="new-note">
+            <button 
+                className="new-note"
+                onClick={resetCurrentNote}
+            >
                 <img src={newHover} alt="New note" />
                 <img className="outline" src={newIcon} alt="New note" />
             </button>
